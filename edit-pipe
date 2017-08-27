@@ -16,8 +16,8 @@
 # Allow editor to be used in a pipeline or as a pager.  The -v option is
 # for viewing only (no further output) the end of a pipeline, so that you
 # can use your favorite editor as a pager.  The editor is taken from VISUAL
-# if defined, else EDITOR if defined, else /usr/bin/editor if there.  This
-# program was inspired by vipe of moreutils.
+# if defined, else EDITOR if defined, else /usr/bin/editor if there, else
+# /usr/bin/vi if there.  This program was inspired by vipe of moreutils.
 
 # Examples:
 # ls | edit-pipe | sort -r
@@ -28,6 +28,7 @@ tf=$(mktemp) || { printf '%s\n' "$0: cannot create temp file" >&2 ; exit 1; }
 if test -n "$VISUAL"; then edit="$VISUAL"
 elif test -n "$EDITOR"; then edit="$EDITOR"
 elif test -x /usr/bin/editor; then edit=/usr/bin/editor
+elif test -x /usr/bin/vi; then edit=/usr/bin/vi
 else printf '%s\n' "$0: no editor defined" >&2; exit 1
 fi
 
