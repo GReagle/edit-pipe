@@ -11,7 +11,12 @@
 The
 .Nm
 command enables an editor to be used in a pipeline, including as a pager.
-This program was inspired by vipe of moreutils.
+It depends on
+.Xr mktemp 1
+which is available at
+.Lk http://www.mktemp.org/
+if your system does not already have it.  This program was inspired by vipe
+of moreutils.
 .Sh OPTIONS
 .Bl -tag -width Ds
 .It Fl v
@@ -30,4 +35,5 @@ man mv |
 .Nm
 -v
 .Sh SEE ALSO
-.Xr vipe 1
+.Xr vipe 1 ,
+.Xr mktemp 1
