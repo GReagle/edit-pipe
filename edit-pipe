@@ -23,12 +23,12 @@
 # ls | edit-pipe | sort -r
 # man mv | edit-pipe -v
 
-tf=$(mktemp) || { printf '%s\n' "$0: cannot create temp file"; exit 1; }
+tf=$(mktemp) || { printf '%s\n' "$0: cannot create temp file" >&2 ; exit 1; }
 
 if test -n "$VISUAL"; then edit="$VISUAL"
 elif test -n "$EDITOR"; then edit="$EDITOR"
 elif test -x /usr/bin/editor; then edit=/usr/bin/editor
-else printf '%s\n' "$0: no editor defined"; exit 1
+else printf '%s\n' "$0: no editor defined" >&2; exit 1
 fi
 
 cat > "$tf"
