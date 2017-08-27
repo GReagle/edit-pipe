@@ -1,0 +1,32 @@
+.Dd 2017-08-27
+.Dt edit-pipe 1
+.Os
+.Sh NAME
+.Nm edit-pipe
+.Nd use an editor in a pipeline
+.Sh SYNOPSIS
+.Nm
+.Op Fl v
+.Sh DESCRIPTION
+The
+.Nm
+command enables an editor to be used in a pipeline, including as a pager.
+This program was inspired by vipe of moreutils.
+.Sh OPTIONS
+.Bl -tag -width Ds
+.It Fl v
+view only, i.e. do not produce output; for the end of a pipeline, in order to use editor as a pager
+.El
+.Sh ENVIRONMENT
+The editor is taken from VISUAL if defined, else EDITOR if defined, else
+/usr/bin/editor if there, else /usr/bin/vi if there.
+.Sh EXAMPLES
+ls |
+.Nm
+| sort -r
+.Pp
+man mv |
+.Nm
+-v
+.Sh SEE ALSO
+.Xr vipe 1
