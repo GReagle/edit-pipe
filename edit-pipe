@@ -13,16 +13,6 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-# Allow editor to be used in a pipeline or as a pager.  The -v option is
-# for viewing only (no further output) the end of a pipeline, so that you
-# can use your favorite editor as a pager.  The editor is taken from VISUAL
-# if defined, else EDITOR if defined, else /usr/bin/editor if there, else
-# /usr/bin/vi if there.  This program was inspired by vipe of moreutils.
-
-# Examples:
-# ls | edit-pipe | sort -r
-# man mv | edit-pipe -v
-
 tf=$(mktemp) || { printf '%s\n' "$0: cannot create temp file" >&2 ; exit 1; }
 
 if test -n "$VISUAL"; then edit="$VISUAL"
